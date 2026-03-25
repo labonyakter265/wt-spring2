@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TEXT TOOL </title>
+</head>
+<body>
+
+  <h2>TEXT ANALYSIS TOOLS : </h2>
+
+  <Text area >
+  <textarea id="text" 
+  rows="5" 
+  cols="45"
+  placeholder="Type text here.."></textarea>
+  <br><br>
+
+  <Button >
+  <button onclick="analyze()">Analyze Text</button>
+
+  <Result>
+  <div id="output"
+   style="margin-top:18px; border:1px solid rgb(31, 8, 182); padding:14px;"></div>
+
+  <script>
+    function analyze() {
+      let text = document.getElementById("text").value;
+
+      if (text.trim() === "") {
+        document.getElementById("output").innerHTML = "Enter text!";
+        return;
+      }
+
+      let characters = text.length;
+
+      let words = text.trim().split(/\s+/).length;
+
+      let reversed = text.split("").reverse().join("");
+
+      document.getElementById("output").innerHTML =
+        "Characters: " + characters + "<br>" +
+        "Words: " + words + "<br><br>" +
+        "Reversed Text:<br>" + reversed;
+    }
+  </script>
+
+</body>
+</html>
